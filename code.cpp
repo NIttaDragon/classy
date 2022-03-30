@@ -4,33 +4,65 @@ using namespace std;
 
 int main()
 {
-    Students student; // Создание объекта класса Student
+    Matrica matrix; // Создание объекта класса
 
-    string name;
-    string last_name;
+    int a[4][4]; // Матрица
+    int n,i,j,b;
 
-    cout << "Имя: "; // Ввод имени с клавиатуры
-    getline(cin, name);
-
-    cout << "Фамилия: "; // Ввод фамилии
-    getline(cin, last_name);
-
-    student.set_name(name); // Сохранение имени и фамилии в объект класса Students
-    student.set_last_name(last_name);
-
-    int scores[5]; // Оценки
-    int sum = 0; // Сумма всех оценок
-
-    for (int i = 0; i < 5; ++i)  // Ввод промежуточных оценок
+    cout<<"Начальная матрица: "<<endl; //Вывод начальной матрицы
+    for (i=0;i<4;i++)
     {
-        cout << "Оценка " << i+1 << ": ";
-        cin >> scores[i];
-        sum += scores[i]; // суммирование
+      for (j=0;j<4;j++)
+      {
+        a[i][j]=i+j*2;
+        cout<<a[i][j]<<"   ";
+      }
+      cout << endl;
     }
-
-    student.set_scores(scores); // Сохраняем промежуточные оценки в объект класса Student
-    float average_ball = sum / 5.0; // Считаем средний балл
-    student.set_average_ball(average_ball); // Сохраняем средний балл в объект класса Students
-    cout<<"Средний балл по студенту "<<student.get_name()<<" "<<student.get_last_name()<<" : "<<student.get_average_ball()<<endl; // Выводим данные по студенту
+    a=1;
+    while (a!=0)
+    {
+      cout<<"Что хотите сделать с матрицей:"<<endl;
+      cout<<"1. Умножить"<<endl;
+      cout<<"2.Транспонировать"<<endl;
+      cout<<"3. Ничего, завершить программу"<<endl;
+      cin>>b;
+      switch (b)
+      {
+        case 1:
+        {
+          cout<<"Введите число, на которое нужно умножить матрицу: "<<endl;
+          cin>>n;
+          cout<<"Умноженная матрица: "<<endl; //Умножение матрицы
+          for (i=0;i<4;i++)
+          {
+            for (j=0;j<4;j++)
+            {
+              cout<<a[i][j]*n<<"    ";
+            }
+            cout<<endl;
+          }
+          break;
+        }
+        case 2:
+        {
+          cout<<"Транспонированная матрица: "<<endl; //Транспонирование матрицы
+          for (int i=0;i<4;i++)
+          {
+            for (int j=0;j<4;j++)
+            {
+              cout<<a[j][i]*n<<"   ";
+            }
+            cout << endl;
+          }
+          break;
+        }
+        case 3:
+        {
+          a=0;
+          break;
+        }
+      }
+    }
     return 0;
 }
