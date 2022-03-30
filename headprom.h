@@ -119,5 +119,6 @@ public:
     }
     if (m>0)
       delete[] M;
+    cout<<"Матрица удалена"<<endl;
   }
   };
